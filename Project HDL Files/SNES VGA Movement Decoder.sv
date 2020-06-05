@@ -7,7 +7,7 @@
  *                                             *
  ***********************************************/
 
-module SNES_VGA_Movement_Decoder #(parameter wPx = 16, hPx = 16)
+module SNES_VGA_Movement_Decoder #(parameter wPx = 16, hPx = 16) // wPx = width of sprite, hPx = height of sprite
                                   (input logic Up, Down, Left, Right,
                                    input logic [9:0] Col, Row,
                                    output logic [9:0] Col_out, Row_out);

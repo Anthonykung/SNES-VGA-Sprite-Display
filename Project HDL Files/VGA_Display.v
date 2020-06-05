@@ -15,7 +15,7 @@
 
 // PROGRAM		"Quartus Prime"
 // VERSION		"Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
-// CREATED		"Fri Jun 05 03:00:32 2020"
+// CREATED		"Fri Jun 05 10:29:44 2020"
 
 module VGA_Display(
 	reset_n,
@@ -56,14 +56,11 @@ output wire	[3:0] blue_display;
 output wire	[3:0] green_display;
 output wire	[3:0] red_display;
 
-wire	[3:0] BLUE;
 wire	Clock_25MHz;
 wire	[9:0] Display_Col;
 wire	[9:0] Display_Row;
-wire	[3:0] GREEN;
 wire	H_Display;
 wire	HSYNC;
-wire	[3:0] RED;
 wire	[11:0] RGB;
 wire	V_Display;
 wire	VSYNC;
@@ -118,15 +115,15 @@ SNES_VGA_Button_Decoder	b2v_inst11(
 	.B(B),
 	.X(X),
 	.Y(Y),
-	.BLUE(BLUE),
-	.GREEN(GREEN),
-	.RED(RED));
+	.BLUE(RGB[11:8]),
+	.GREEN(RGB[7:4]),
+	.RED(RGB[3:0]));
 
 
 ROM1	b2v_inst2(
 	.clock(Clock_50MHz),
-	.address(SYNTHESIZED_WIRE_0)
-	);
+	.address(SYNTHESIZED_WIRE_0),
+	.q(RGB));
 
 
 Memory_Processor	b2v_inst3(
@@ -141,7 +138,7 @@ RGB_Generator	b2v_inst4(
 	.H_Display(H_Display),
 	.V_Display(V_Display),
 	.GND(SYNTHESIZED_WIRE_3),
-	.RGB(RED),
+	.RGB(RGB[3:0]),
 	.out_RGB(red_display));
 
 
@@ -150,7 +147,7 @@ RGB_Generator	b2v_inst6(
 	.H_Display(H_Display),
 	.V_Display(V_Display),
 	.GND(SYNTHESIZED_WIRE_4),
-	.RGB(GREEN),
+	.RGB(RGB[7:4]),
 	.out_RGB(green_display));
 
 
@@ -159,7 +156,7 @@ RGB_Generator	b2v_inst8(
 	.H_Display(H_Display),
 	.V_Display(V_Display),
 	.GND(SYNTHESIZED_WIRE_5),
-	.RGB(BLUE),
+	.RGB(RGB[11:8]),
 	.out_RGB(blue_display));
 
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://vault.hailiga.org/hailiga.css">
+    <link rel="icon" sizes="64x64" href="https://vault.hailiga.org/International-Group-of-Anthony-Coloured-Logo.png" type="image/png">
+    <title>SNES VGA Sprite Display Version 4.0</title>
+  </head>
+  <body class="anthonian-container anthonian-center">
+    <h1 class="anthonian-h1">SNES VGA Sprite Display Version 4.0</h1>
+    <a href="https://hailiga.org/anthonykung">
+      <img width="600px" src="https://anthonykung.com/wp-content/uploads/2020/05/Anthony-Kung-Email-Signature.png" />
+    </a>
+    <h2 class="anthonian-h2">Thanks for using SNES VGA Sprite Display Version 4.0</h2>
+    <p class="anthonian-p">
+      Let's see if we can help you out! Here's some of the documentations on how to use this package.
+    </p>
+    <h2 class="anthonian-h2">How To Use</h2>
+    <p class="anthonian-p anthonian-side-margin">
+      There are two folders in this package, Project HDL Files and Simulation Do Files. The Project HDL Files contains
+      the actual HDL files for the package in both SystemVerilog and Verilog format. The Simulation Do Files contains
+      the ModelSim simulation commands that you can use to simulate this package easily. The process of doing both are
+      different, below are the different process of using this package.
+    </p>
+    <h3 class="anthonian-h3">Quartus</h3>
+    <p class="anthonian-p anthonian-side-margin">
+      For implementing on Quartus, load everything in the Project HDL Files folder to Quartus. Open VGA_Display.v in
+      Quartus, create a symbol file for it. Go on to your top level schematic file (if you do not have one, you will
+      need to create a new schematic file) and place the VGA_Display block in, be sure to connect all the ports to
+      your inputs and outputs, outputs are the VGA ports on your FPGA.
+    </p>
+    <h3 class="anthonian-h3">ModelSim</h3>
+    <p class="anthonian-p anthonian-side-margin">
+      For simulation, load the .sv and .v files from the Project HDL Files into ModelSim ONLY, adding other files may
+      cause errors. Your ModelSim Default Library Name should be named EXACTLY <code class="anthonian-code">work</code>. Go to Simulation Do Files and
+      select the component you want to test. Copy the full file path, go back to ModelSim at the command bar, type
+      <br />
+      <code class="anthonian-code">do /path/to/folder/Simulation\ Do\ Files/Selected_Component.do</code>
+    </p>
+    <p class="anthonian-p">
+      Created with 💖 By <a class="anthonian-a" href="https://hailiga.org/anthonykung">Anthony Kung</a>
+    </p>
+
+    <script src="https://vault.hailiga.org/hailiga.js"></script>
+  </body>
+</html>

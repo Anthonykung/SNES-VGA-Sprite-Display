@@ -7,7 +7,7 @@
  *                                             *
  ***********************************************/
  
- module Memory_Processor #(parameter N = 12, Size = 16)
+ module Memory_Processor #(parameter N = 12, Size = 16) // N = Address Bit, Size = Sprite Size
                           (input logic [9:0] Row, Col,
 								   output logic [N-1:0] Address);
 								  
